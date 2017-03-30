@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.liuting.sliderlayout.SliderLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_layout_image"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@android:color/white"
+    app:sl_indicator_position="centerBottom"
+    app:sl_selected_indicator_height="12dp"
+    app:sl_selected_indicator_width="12dp"
+    app:sl_default_image="@mipmap/ic_default"
+    app:sl_indicator_shape="rect"
+    >
+</com.liuting.sliderlayout.SliderLayout>

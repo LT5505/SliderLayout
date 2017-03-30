@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sl_selected_indicator_height">10dp</dimen>
+    <dimen name="sl_selected_indicator_width">10dp</dimen>
+    <dimen name="sl_unselected_indicator_height">10dp</dimen>
+    <dimen name="sl_unselected_indicator_width">10dp</dimen>
+    <dimen name="sl_indicator_padding">6dp</dimen>
+    <dimen name="sl_indicator_margin">6dp</dimen>
+</resources>

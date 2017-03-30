@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SliderLayout">
+        <attr name="sl_is_auto_play" format="boolean"/>
+        <attr name="sl_indicator_shape" format="enum">
+            <enum name="oval" value="0" />
+            <enum name="rect" value="1" />
+        </attr>
+        <attr name="sl_indicator_position" format="enum">
+            <enum name="centerBottom" value="0" />
+            <enum name="rightBottom" value="1" />
+            <enum name="leftBottom" value="2" />
+            <enum name="centerTop" value="3" />
+            <enum name="rightTop" value="4" />
+            <enum name="leftTop" value="5" />
+        </attr>
+        <attr name="sl_selected_indicator_color" format="color|reference" />
+        <attr name="sl_unselected_indicator_color" format="color|reference" />
+
+        <attr name="sl_selected_indicator_height" format="dimension|reference" />
+        <attr name="sl_selected_indicator_width" format="dimension|reference" />
+
+        <attr name="sl_unselected_indicator_height" format="dimension|reference" />
+        <attr name="sl_unselected_indicator_width" format="dimension|reference" />
+
+        <attr name="sl_indicator_space" format="dimension|reference" />
+        <attr name="sl_indicator_margin" format="dimension|reference" />
+        <attr name="sl_auto_play_duration" format="integer|reference" />
+        <attr name="sl_default_image" format="reference"/>
+        <attr name="sl_error_image" format="reference"/>
+    </declare-styleable>
+</resources>
