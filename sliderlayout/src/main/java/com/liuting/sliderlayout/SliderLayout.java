@@ -30,44 +30,44 @@ import java.util.List;
  * Package:com.liuting.imageswitcher
  * author:liuting
  * Date:2017/3/29
- * Desc:自定义自动无限轮播滚动View
+ * Desc:the custom widget of slider image
  */
 
 public class SliderLayout extends RelativeLayout implements View.OnTouchListener, ViewSwitcher.ViewFactory {
-    private ImageSwitcher switcherImage;//图像切换
-    private int pictureIndex = 0;//图像的index
-    private float touchDownX;// 左右滑动时手指按下的X坐标
-    private float touchUpX;// 左右滑动时手指松开的X坐标
+    private ImageSwitcher switcherImage;//ImageSwitcher
+    private int pictureIndex = 0;//index
+    private float touchDownX;// touch down x
+    private float touchUpX;// touch up x
     private static final int START_AUTO_PLAY = 0;
     private int autoPlayDuration = 4000;
-    Drawable unSelectedDrawable;//没有选中时的图片
-    Drawable selectedDrawable;//选中时的图片
-    private LinearLayout indicatorContainer;//指示器布局
+    Drawable unSelectedDrawable;//the unSelected Drawable
+    Drawable selectedDrawable;//the Selected Drawable
+    private LinearLayout indicatorContainer;//indicator layout
     private Context context;//context
-    private List<Object> list = new ArrayList<>();//网络图片列表
-    private int itemCount;//总数
-    private Boolean isAutoPlay = true;//是否循环滚动
-    private Dialog loadingDialog;//提示对话框
-    private IndicatorShape indicatorShape = IndicatorShape.oval;//指示器默认图形
-    private IndicatorPosition indicatorPosition = IndicatorPosition.centerBottom;//默认是指示器底部居中显示
-    private int unSelectedIndicatorColor = 0xffffffff;//默认不选中指示器为白色
-    private int selectedIndicatorColor = 0xff0000ff;//默认选中指示器为蓝色
-    private float unSelectedIndicatorHeight = getResources().getDimension(R.dimen.sl_unselected_indicator_height);//默认不选中指示器高度
-    private float unSelectedIndicatorWidth = getResources().getDimension(R.dimen.sl_unselected_indicator_width);//默认不选中指示器宽度
-    private float selectedIndicatorHeight = getResources().getDimension(R.dimen.sl_selected_indicator_height);//默认选中指示器高度
-    private float selectedIndicatorWidth = getResources().getDimension(R.dimen.sl_selected_indicator_width);//默认选中指示器宽度
-    private float indicatorSpace = getResources().getDimension(R.dimen.sl_indicator_padding);//指示器padding
-    private float indicatorMargin = getResources().getDimension(R.dimen.sl_indicator_margin);//指示器间距
-    private Integer defaultImage = R.drawable.ic_default;//默认图片
-    private Integer errorImage = R.drawable.ic_default;//默认图片
-    private IOnClickListener listener;//事件监听
+    private List<Object> list = new ArrayList<>();//the list of resourceId or urls
+    private int itemCount;//the size ot list
+    private Boolean isAutoPlay = true;//the flag of play
+    private Dialog loadingDialog;//the loading dialog
+    private IndicatorShape indicatorShape = IndicatorShape.oval;//the default shape of indicator
+    private IndicatorPosition indicatorPosition = IndicatorPosition.centerBottom;//the default position of indicator
+    private int unSelectedIndicatorColor = 0xffffffff;//the default color of the unselected indicator
+    private int selectedIndicatorColor = 0xff0000ff;//the default color of the selected indicator
+    private float unSelectedIndicatorHeight = getResources().getDimension(R.dimen.sl_unselected_indicator_height);//the default height of the unselected indicator
+    private float unSelectedIndicatorWidth = getResources().getDimension(R.dimen.sl_unselected_indicator_width);//the default width of the unselected indicator
+    private float selectedIndicatorHeight = getResources().getDimension(R.dimen.sl_selected_indicator_height);//the default height of the selected indicator
+    private float selectedIndicatorWidth = getResources().getDimension(R.dimen.sl_selected_indicator_width);//the default width of the selected indicator
+    private float indicatorSpace = getResources().getDimension(R.dimen.sl_indicator_padding);//the padding of indicator
+    private float indicatorMargin = getResources().getDimension(R.dimen.sl_indicator_margin);//the margin of indicator
+    private Integer defaultImage = R.drawable.ic_default;//the default image
+    private Integer errorImage = R.drawable.ic_default;//the error image
+    private IOnClickListener listener;//listener
 
-    //指示器形状
+    //Shape
     private enum IndicatorShape {
         oval,rect
     }
 
-    //指示器显示位置
+    //Position
     private enum IndicatorPosition {
         centerBottom,
         rightBottom,
@@ -82,7 +82,7 @@ public class SliderLayout extends RelativeLayout implements View.OnTouchListener
         @Override
         public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
             dismissDialog();
-            //自适应高度时使用
+            //the code that make the height of ImageSwitcher is wrap_content
 //            int height = ((ImageView) switcherImage.getCurrentView()).getMeasuredHeight();
 //            ((ImageView) switcherImage.getCurrentView()).setScaleType(ImageView.ScaleType.CENTER_CROP);
 //            if (height > 0) {
@@ -139,17 +139,17 @@ public class SliderLayout extends RelativeLayout implements View.OnTouchListener
     }
 
     /**
-     * 初始化
+     * init
      *
-     * @param context
-     * @param attrs
-     * @param defStyleAttr
+     * @param context  context
+     * @param attrs    attrs
+     * @param defStyleAttr  defStyleAttr
      */
     private void initView(Context context, AttributeSet attrs, int defStyleAttr) {
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.SliderLayout, defStyleAttr, 0);
         if (array != null) {
             isAutoPlay = array.getBoolean(R.styleable.SliderLayout_sl_is_auto_play, isAutoPlay);
-            //获取底部指示器的形状
+            //get the shape of indicator
             int intShape = array.getInt(R.styleable.SliderLayout_sl_indicator_shape, indicatorShape.ordinal());
             for (IndicatorShape shape : IndicatorShape.values()) {
                 if (shape.ordinal() == intShape) {
@@ -157,7 +157,7 @@ public class SliderLayout extends RelativeLayout implements View.OnTouchListener
                     break;
                 }
             }
-            //获取底部指示器的位置
+            //get the position of indicator
             int intPosition = array.getInt(R.styleable.SliderLayout_sl_indicator_position, IndicatorPosition.centerBottom.ordinal());
             for (IndicatorPosition position : IndicatorPosition.values()) {
                 if (position.ordinal() == intPosition) {
@@ -178,13 +178,13 @@ public class SliderLayout extends RelativeLayout implements View.OnTouchListener
             errorImage = array.getResourceId(R.styleable.SliderLayout_sl_error_image, errorImage);
         }
 
-        //绘制未选中状态图形
+        //draw the unselected drawable
         LayerDrawable unSelectedLayerDrawable;
         LayerDrawable selectedLayerDrawable;
         GradientDrawable unSelectedGradientDrawable;
         unSelectedGradientDrawable = new GradientDrawable();
 
-        //绘制选中状态图形
+        //draw the selected drawable
         GradientDrawable selectedGradientDrawable;
         selectedGradientDrawable = new GradientDrawable();
         switch (indicatorShape) {
@@ -209,9 +209,9 @@ public class SliderLayout extends RelativeLayout implements View.OnTouchListener
     }
 
     /**
-     * 设置图片列表
+     * set list
      *
-     * @param list 图片列表
+     * @param list the list of resourceId or urls
      */
     public void setList(List<Object> list) {
         this.list = list;
@@ -227,22 +227,22 @@ public class SliderLayout extends RelativeLayout implements View.OnTouchListener
     }
 
     /**
-     * 设置网络图片加载时的提示框样式
+     * set the dialog
      *
-     * @param loadingDialog
+     * @param loadingDialog the loading dialog
      */
     public void setLoadingDialog(Dialog loadingDialog) {
         this.loadingDialog = loadingDialog;
     }
 
     /**
-     * 初始化滑动
+     * init slider
      */
     private void initSlider() {
         switcherImage = new ImageSwitcher(context);
         switcherImage.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 
-        //设置视图工厂
+        //set factory
         switcherImage.setFactory(this);
         switcherImage.setOnTouchListener(this);
         addView(switcherImage);
@@ -276,11 +276,11 @@ public class SliderLayout extends RelativeLayout implements View.OnTouchListener
                 break;
         }
 
-        //设置margin
+        //set margin
         params.setMargins((int) (indicatorMargin), (int) (indicatorMargin), (int) (indicatorMargin), (int) (indicatorMargin));
-//        //添加指示器容器布局到SliderLayout
+//        //add indicator into SliderLayout
         addView(indicatorContainer, params);
-        //初始化指示器，并添加到指示器容器布局
+        //init indicator
         for (int i = 0; i < itemCount; i++) {
             ImageView indicator = new ImageView(context);
             indicator.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -303,7 +303,7 @@ public class SliderLayout extends RelativeLayout implements View.OnTouchListener
     }
 
     /**
-     * 开始滚动
+     * start play
      */
     private void startAutoPlay() {
         if (isAutoPlay) {
@@ -312,7 +312,7 @@ public class SliderLayout extends RelativeLayout implements View.OnTouchListener
     }
 
     /**
-     * 停止滚动
+     * stop play
      */
     public void stopAutoPlay() {
         if (isAutoPlay) {
@@ -322,7 +322,7 @@ public class SliderLayout extends RelativeLayout implements View.OnTouchListener
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        //如果图片需要自适应高度的话，可使用该方法重绘高度，使得图片高度为原始图片的高度
+        ////the code that make the height of ImageSwitcher is wrap_content
 //        if (switcherImage != null) {
 //            heightMeasureSpec = switcherImage.getMeasuredHeight();
 //        }
@@ -332,23 +332,23 @@ public class SliderLayout extends RelativeLayout implements View.OnTouchListener
     @Override
     public boolean onTouch(View view, MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            // 取得左右滑动时手指按下的X坐标
+            // get the x of touch down
             touchDownX = event.getX();
             return true;
         } else if (event.getAction() == MotionEvent.ACTION_UP) {
-            // 取得左右滑动时手指松开的X坐标
+            // get the x of touch up
             touchUpX = event.getX();
-            // 从左往右，看前一张
+            // left to right
             if (touchUpX - touchDownX > 100) {
                 stopAutoPlay();
                 SliderLeftToRight();
                 handler.sendEmptyMessageDelayed(START_AUTO_PLAY,autoPlayDuration);
-                // 从右往左，看下一张
+                // right to left
             } else if (touchDownX - touchUpX > 100) {
                 stopAutoPlay();
                 SliderRightToLeft();
                 handler.sendEmptyMessageDelayed(START_AUTO_PLAY,autoPlayDuration);
-                //相应点击事件
+                //onClickListener
             } else if (0==(Math.abs(touchUpX - touchDownX))||(Math.abs(touchUpX - touchDownX))<50) {
                 if (listener != null) {
                     stopAutoPlay();
@@ -362,24 +362,24 @@ public class SliderLayout extends RelativeLayout implements View.OnTouchListener
     }
 
     /**
-     * 从左往右，看前一张
+     * Left to Right
      */
     private void SliderLeftToRight() {
-        // 取得当前要看的图片的index
+        // get current index
         pictureIndex = pictureIndex == 0 ? itemCount - 1
                 : pictureIndex - 1;
-        // 设置图片切换的动画
+        // set Animation
         switcherImage.setInAnimation(AnimationUtils.loadAnimation(context,
                 android.R.anim.slide_in_left));
         switcherImage.setOutAnimation(AnimationUtils.loadAnimation(context,
                 android.R.anim.slide_out_right));
-        // 设置当前要看的图片
+        // switch indicator
 //        switcherImage.setImageResource(image[pictureIndex]);
         switchIndicator(pictureIndex);
     }
 
     /**
-     * 加载图片
+     * load images
      *
      * @param pictureIndex index
      */
@@ -392,7 +392,7 @@ public class SliderLayout extends RelativeLayout implements View.OnTouchListener
     }
 
     /**
-     * 加载网络图片，图片自适应高度问题有待调整
+     * load the network images
      *
      * @param pictureIndex index
      */
@@ -408,7 +408,7 @@ public class SliderLayout extends RelativeLayout implements View.OnTouchListener
     }
 
     /**
-     * 加载本地图片，图片自适应高度问题有待调整
+     * load the resource images
      *
      * @param pictureIndex index
      */
@@ -419,29 +419,29 @@ public class SliderLayout extends RelativeLayout implements View.OnTouchListener
     }
 
     /**
-     * 从右往左，看下一张
+     * Right to Left
      */
     private void SliderRightToLeft() {
-        // 取得当前要看的图片的index
+        // get current index
         pictureIndex = pictureIndex == itemCount - 1 ? 0
                 : pictureIndex + 1;
-        // 设置图片切换的动画
-        // 由于Android没有提供slide_out_left和slide_in_right，所以仿照slide_in_left和slide_out_right编写了slide_out_left和slide_in_right
+        // set Animation
+        // Custom the slide_out_left and slide_in_right
         switcherImage.setInAnimation(AnimationUtils.loadAnimation(context,
                 R.anim.slide_in_right));
         switcherImage.setOutAnimation(AnimationUtils.loadAnimation(context,
                 R.anim.slide_out_left));
 //                switcherImage.setInAnimation(AnimationUtils.loadAnimation(this,android.R.anim.fade_in));
 //                switcherImage.setOutAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_out));
-        // 设置当前要看的图片
+        // switch indicator
 //        switcherImage.setImageResource(image[pictureIndex]);
         switchIndicator(pictureIndex);
     }
 
     /**
-     * 切换指示器状态
+     * switch indicator
      *
-     * @param index 当前位置
+     * @param index index
      */
     private void switchIndicator(int index) {
         for (int i = 0; i < indicatorContainer.getChildCount(); i++) {
