@@ -62,9 +62,10 @@
         super.onDestroy();
     }
 
-<p>4、参考 [Demo](https://github.com/LT5505/SliderLayout/tree/master/app "Demo") </p>
+<p>4、参考Demo: https://github.com/LT5505/SliderLayout/tree/master/app</p>
 
 <p>5、效果图</p>
-![enter image description here](https://github.com/LT5505/SliderLayout/tree/master/Screenhots/1.gif)
+
+![效果图](https://github.com/LT5505/SliderLayout/tree/master/Screenhots/1.gif)
 
 <p>最后，感谢开源 https://github.com/dongjunkun/BannerLayout</p>
