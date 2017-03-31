@@ -66,6 +66,6 @@
 
 <p>5、效果图</p>
 
-![效果图](https://github.com/LT5505/SliderLayout/Screenhots/1.gif)
+![效果图](https://github.com/LT5505/SliderLayout/blob/master/Screenhots/loading.gif?raw=true)
 
 <p>最后，感谢开源 https://github.com/dongjunkun/BannerLayout</p>
