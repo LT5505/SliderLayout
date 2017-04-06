@@ -64,7 +64,9 @@
 
 <p>4、参考Demo: https://github.com/LT5505/SliderLayout/tree/master/app</p>
 
-<p>5、效果图</p>
+<p>5、博客详细介绍：http://www.cnblogs.com/LT5505/p/6652449.html</p>
+
+<p>6、效果图</p>
 
 ![效果图](https://github.com/LT5505/SliderLayout/blob/master/Screenhots/loading.gif?raw=true)
 
