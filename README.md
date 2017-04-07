@@ -28,22 +28,27 @@
 ## 使用说明
 <p>1、在布局文件 layout 中写入。</p>
 
-    <com.liuting.sliderlayout.SliderLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_layout_image"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:background="@android:color/white"
-    app:sl_indicator_position="centerBottom"
-    app:sl_selected_indicator_height="12dp"
-    app:sl_selected_indicator_width="12dp"
-    app:sl_default_image="@mipmap/ic_default"
-    app:sl_indicator_shape="rect"
-    >
-    </com.liuting.sliderlayout.SliderLayout>
+    <com.liuting.sliderlayout.SliderLayout
+        android:id="@+id/main_layout_jingdong"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@android:color/white"
+        app:sl_default_image="@mipmap/ic_default"
+        app:sl_indicator_margin="6dp"
+        app:sl_indicator_position="centerBottom"
+        app:sl_indicator_shape="oval"
+        app:sl_indicator_space="3dp"
+        app:sl_selected_indicator_color="@android:color/white"
+        app:sl_selected_indicator_height="6dp"
+        app:sl_selected_indicator_width="6dp"
+        app:sl_unselected_indicator_color="@color/unselected_color"
+        app:sl_unselected_indicator_height="6dp"
+        app:sl_unselected_indicator_width="6dp"
+        ></com.liuting.sliderlayout.SliderLayout>
+        
 <p>2、在 Activity/Fragment 中直接声明使用。</p>
 
-    SliderLayout layoutImage = (SliderLayout) findViewById(R.id.main_layout_image);
+    SliderLayout layoutImage = (SliderLayout) findViewById(R.id.main_layout_jingdong);
     //设置Dialog提示框样式，用于加载网络图片时进度提示
     layoutImage.setLoadingDialog(dialog);
     //添加图片的点击事件
@@ -56,10 +61,10 @@
 <p>3、如果开启了自动滚动的话，在 Activity/Fragment 生命周期 Destroy 的时候记得停止自动滚动。</p>
 
     @Override
-    protected void onDestroy() {
+    protected void onStop() {
         layoutImage.stopAutoPlay();
         layoutImage.dismissDialog();
-        super.onDestroy();
+        super.onStop();
     }
 
 <p>4、参考Demo: https://github.com/LT5505/SliderLayout/tree/master/app</p>
@@ -68,6 +73,6 @@
 
 <p>6、效果图</p>
 
-![效果图](https://github.com/LT5505/SliderLayout/blob/master/Screenhots/loading.gif?raw=true)
+![效果图](https://github.com/LT5505/SliderLayout/blob/master/Screenhots/new.gif?raw=true)
 
 <p>最后，感谢开源 https://github.com/dongjunkun/BannerLayout</p>
