@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.liuting.sliderlayout.SliderLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_layout_image"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:background="@android:color/white"
-    app:sl_indicator_position="centerBottom"
-    app:sl_selected_indicator_height="12dp"
-    app:sl_selected_indicator_width="12dp"
-    app:sl_default_image="@mipmap/ic_default"
-    app:sl_indicator_shape="rect"
-    >
-</com.liuting.sliderlayout.SliderLayout>
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.liuting.sliderlayout.SliderLayout
+        android:id="@+id/main_layout_jingdong"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@android:color/white"
+        app:sl_default_image="@mipmap/ic_default"
+        app:sl_indicator_margin="6dp"
+        app:sl_indicator_position="centerBottom"
+        app:sl_indicator_shape="oval"
+        app:sl_indicator_space="3dp"
+        app:sl_selected_indicator_color="@android:color/white"
+        app:sl_selected_indicator_height="6dp"
+        app:sl_selected_indicator_width="6dp"
+        app:sl_unselected_indicator_color="@color/unselected_color"
+        app:sl_unselected_indicator_height="6dp"
+        app:sl_unselected_indicator_width="6dp"
+        ></com.liuting.sliderlayout.SliderLayout>
+
+    <com.liuting.sliderlayout.SliderLayout
+        android:id="@+id/main_layout_taobao"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@android:color/white"
+        app:sl_default_image="@mipmap/ic_default"
+        app:sl_indicator_margin="6dp"
+        app:sl_indicator_position="centerBottom"
+        app:sl_indicator_shape="oval"
+        app:sl_indicator_space="3dp"
+        app:sl_selected_indicator_color="@android:color/holo_orange_dark"
+        app:sl_selected_indicator_height="6dp"
+        app:sl_selected_indicator_width="6dp"
+        app:sl_unselected_indicator_color="@color/unselected_color"
+        app:sl_unselected_indicator_height="6dp"
+        app:sl_unselected_indicator_width="6dp"
+        android:visibility="gone"></com.liuting.sliderlayout.SliderLayout>
+</LinearLayout>

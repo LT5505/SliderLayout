@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.MainActivity">
+    <item
+        android:id="@+id/menu_item_jingdong"
+        android:orderInCategory="100"
+        android:title="JingDong Mall"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_item_taobao"
+        android:orderInCategory="100"
+        android:title="TaoBao Mall"
+        app:showAsAction="never" />
+</menu>

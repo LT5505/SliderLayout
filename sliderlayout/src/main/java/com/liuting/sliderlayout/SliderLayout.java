@@ -306,6 +306,8 @@ public class SliderLayout extends RelativeLayout implements View.OnTouchListener
      * start play
      */
     private void startAutoPlay() {
+        //avoid sliding twice
+        stopAutoPlay();
         if (isAutoPlay) {
             handler.sendEmptyMessageDelayed(START_AUTO_PLAY, autoPlayDuration);
         }
@@ -492,4 +494,14 @@ public class SliderLayout extends RelativeLayout implements View.OnTouchListener
         void onItemClick(View view, int position);
     }
 
+    @Override
+    protected void dispatchVisibilityChanged(View changedView, int visibility) {
+        if(visibility == GONE){
+            stopAutoPlay();
+        }else if(visibility == VISIBLE){
+            //reset index
+            pictureIndex = 0;
+            startAutoPlay();
+        }
+    }
 }
