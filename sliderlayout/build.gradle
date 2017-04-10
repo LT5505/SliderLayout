@@ -12,7 +12,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
-        versionName "1.0.0"
+        versionName "1.0.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -47,7 +47,7 @@ publish {
     userOrg = 'lting5505'
     groupId = 'com.liuting.sliderlayout'
     artifactId = 'SliderLayout'
-    publishVersion = '1.0.0'
+    publishVersion = '1.0.1'
     desc = 'widget-library'
     website = 'https://github.com/LT5505/SliderLayout'
 }

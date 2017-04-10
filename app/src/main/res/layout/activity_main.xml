@@ -21,6 +21,7 @@
         app:sl_unselected_indicator_color="@color/unselected_color"
         app:sl_unselected_indicator_height="6dp"
         app:sl_unselected_indicator_width="6dp"
+        app:sl_arc_height="0dp"
         ></com.liuting.sliderlayout.SliderLayout>
 
     <com.liuting.sliderlayout.SliderLayout
@@ -29,7 +30,7 @@
         android:layout_height="200dp"
         android:background="@android:color/white"
         app:sl_default_image="@mipmap/ic_default"
-        app:sl_indicator_margin="6dp"
+        app:sl_indicator_margin="12dp"
         app:sl_indicator_position="centerBottom"
         app:sl_indicator_shape="oval"
         app:sl_indicator_space="3dp"

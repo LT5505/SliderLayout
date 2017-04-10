@@ -6,4 +6,5 @@
     <dimen name="sl_unselected_indicator_width">10dp</dimen>
     <dimen name="sl_indicator_padding">6dp</dimen>
     <dimen name="sl_indicator_margin">6dp</dimen>
+    <dimen name="sl_arc_height">10dp</dimen>
 </resources>

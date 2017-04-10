@@ -36,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
      */
     private void initJingDong() {
         layoutJingDong.setVisibility(View.VISIBLE);
+        layoutJingDong.setPictureIndex(0);
         layoutTaobao.setVisibility(View.GONE);
+        layoutTaobao.stopAutoPlay();
         listJingDong = new ArrayList<>();
         listJingDong.add("http://file02.16sucai.com/d/file/2014/0607/1902b774a2af86eb84f4bc502a71180e.jpg");
         listJingDong.add("http://img.sccnn.com/bimg/337/42282.jpg");
@@ -60,7 +62,9 @@ public class MainActivity extends AppCompatActivity {
      */
     private void initTaoBao(){
         layoutJingDong.setVisibility(View.GONE);
+        layoutJingDong.stopAutoPlay();
         layoutTaobao.setVisibility(View.VISIBLE);
+        layoutTaobao.setPictureIndex(0);
         listTaobao = new ArrayList<>();
         listTaobao.add(R.mipmap.pic4);
         listTaobao.add(R.mipmap.pic5);
