@@ -74,6 +74,10 @@
 
 <p>6、效果图</p>
 
+![效果图](https://github.com/LT5505/SliderLayout/blob/master/Screenhots/10.png?raw=true)
+
+![效果图](https://github.com/LT5505/SliderLayout/blob/master/Screenhots/2.png?raw=true)
+
 ![效果图](https://github.com/LT5505/SliderLayout/blob/master/Screenhots/screenshots.gif?raw=true)
 
 <p>最后，感谢开源 https://github.com/dongjunkun/BannerLayout ， https://github.com/florent37/ArcLayout</p>
