@@ -22,7 +22,7 @@
     }
 <p>2、在 module 下的 build.gradle 文件中添加依赖。</p>
 
-    compile 'com.liuting.sliderlayout:SliderLayout:1.0.0'
+    compile 'com.liuting.sliderlayout:SliderLayout:1.0.1'
 
 
 ## 使用说明
@@ -44,6 +44,7 @@
         app:sl_unselected_indicator_color="@color/unselected_color"
         app:sl_unselected_indicator_height="6dp"
         app:sl_unselected_indicator_width="6dp"
+        app:sl_arc_height="0dp"
         ></com.liuting.sliderlayout.SliderLayout>
         
 <p>2、在 Activity/Fragment 中直接声明使用。</p>
@@ -73,6 +74,6 @@
 
 <p>6、效果图</p>
 
-![效果图](https://github.com/LT5505/SliderLayout/blob/master/Screenhots/new.gif?raw=true)
+![效果图](https://github.com/LT5505/SliderLayout/blob/master/Screenhots/screenshots.gif?raw=true)
 
-<p>最后，感谢开源 https://github.com/dongjunkun/BannerLayout</p>
+<p>最后，感谢开源 https://github.com/dongjunkun/BannerLayout ， https://github.com/florent37/ArcLayout</p>
