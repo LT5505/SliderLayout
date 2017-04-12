@@ -8,7 +8,7 @@
 <p> 5、图片的事件监听等均可以扩展。</p>
 
 
-## Gradle 添加依赖
+## Gradle
 
 <p>1、在 Project 的 build.gradle 文件中添加配置。</p>
 
@@ -25,7 +25,7 @@
     compile 'com.liuting.sliderlayout:SliderLayout:1.0.1'
 
 
-## 使用说明
+## About
 <p>1、在布局文件 layout 中写入。</p>
 
     <com.liuting.sliderlayout.SliderLayout
