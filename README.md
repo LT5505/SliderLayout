@@ -16,7 +16,7 @@
         repositories {
             jcenter()
             maven {
-                url  "http://lting5505.bintray.com/maven"
+                url  "https://dl.bintray.com/ltina93/maven"
             }
         }
     }
