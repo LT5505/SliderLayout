@@ -10,14 +10,11 @@
 
 ## Gradle
 
-<p>1、在 Project 的 build.gradle 文件中添加配置。</p>
+<p>1、在 Project 的 build.gradle 文件中添加配置，已经发布到 Jcenter，所以只要配置 jcenter 就可以了。</p>
 
     allprojects {
         repositories {
             jcenter()
-            maven {
-                url  "https://dl.bintray.com/ltina93/maven"
-            }
         }
     }
 <p>2、在 module 下的 build.gradle 文件中添加依赖。</p>
