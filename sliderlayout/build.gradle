@@ -44,7 +44,7 @@ dependencies {
 }
 
 publish {
-    userOrg = 'lting5505'
+    userOrg = 'ltina93'
     groupId = 'com.liuting.sliderlayout'
     artifactId = 'SliderLayout'
     publishVersion = '1.0.1'
